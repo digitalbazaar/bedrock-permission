@@ -2,7 +2,7 @@
   "name": "bedrock-permission",
   "version": "0.1.1-dev",
   "description": "Bedrock permission",
-  "main": "index.js",
+  "main": "./lib/permission",
   "scripts": {
     "test": "node test.js"
   },
@@ -32,6 +32,5 @@
   },
   "directories": {
     "lib": "./lib"
-  },
-  "main": "./lib/permission"
+  }
 }
