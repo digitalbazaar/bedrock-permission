@@ -10,25 +10,22 @@ with the [bedrock-identity][] module.
 npm install bedrock-permission
 ```
 
-Suppose the config file `permissions.js` defines:
+The following example shows how to configure permissions and roles for
+a system where an identity is assigned a role to grant it the permission
+to edit other identities. Suppose the following permission and role are
+configured:
 
 ```js
 var config = require('bedrock').config;
-var permissions = config.permission.permissions;
 
+var permissions = config.permission.permissions;
 permissions.IDENTITY_EDIT = {
   id: 'IDENTITY_EDIT',
   label: 'Edit Identity',
   comment: 'Required to edit an Identity.'
 };
-```
 
-Suppose the config file `roles.js` defines:
-
-```js
-var config = require('bedrock').config;
-var permissions = config.permission.roles;
-
+var roles = config.permission.roles;
 roles['identity.manager'] = {
   id: 'identity.manager',
   label: 'Identity Manager',
@@ -37,9 +34,9 @@ roles['identity.manager'] = {
 };
 ```
 
-Now to test to see if an identity with the role `identity.manager`, that
-isn't restricted to any particular resource, has the permission to edit any
-identity we can do:
+Now to test to see if an entity with the role `identity.manager`, that isn't
+restricted to any particular resource, has the permission to edit any identity
+we can do:
 
 ```js
 var permission = require('bedrock-permission');
@@ -56,7 +53,8 @@ permission.createPermissionTable(
 });
 ```
 
-To tie a role to a particular resource and check against the resource:
+To restrict a role to a particular resource and check against that resource
+we can do:
 
 ```js
 var permission = require('bedrock-permission');
@@ -66,8 +64,8 @@ permission.createPermissionTable([{
   resource: 'http://example.com/i/foo'
 }], function(err, table) {
   permission.checkPermission(
-    table, 'IDENTITY_EDIT', {
-    resource: 'http://example.com/i/foo', function(err) {
+    table, 'IDENTITY_EDIT', {resource: 'http://example.com/i/foo'},
+    function(err) {
       if(err) {
         console.log('permission denied');
       } else {
@@ -167,9 +165,10 @@ to the value 'true'.
 ### Actor
 
 In [bedrock][], the typical usage pattern for checking permissions occurs when
-an actor attempts to perform an action on a resource. An actor is any identity.
-In order to check to see if an actor has a permission to act on a resource, the
-'checkPermission' API in the [bedrock-identity][] module is used.
+an actor attempts to perform an action on a resource. An actor is any identity
+as defined via [bedrock-identity][]. In order to check to see if an actor has a
+permission to act on a resource, the `checkPermission` API in the
+[bedrock-identity][] module is used.
 
 This API will create and cache the actor's permission table. Then it will check
 the table to see if a particular permission exists. If it does, and the actor
