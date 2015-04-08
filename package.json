@@ -1,6 +1,6 @@
 {
   "name": "bedrock-permission",
-  "version": "0.1.1-dev",
+  "version": "1.0.0",
   "description": "Bedrock permission",
   "main": "./lib/permission",
   "scripts": {
@@ -27,8 +27,8 @@
     "underscore": "~1.7.0"
   },
   "peerDependencies": {
-    "bedrock": "~0.3.0",
-    "bedrock-mongodb": "~0.1.0"
+    "bedrock": "^1.0.0",
+    "bedrock-mongodb": "^1.0.0"
   },
   "directories": {
     "lib": "./lib"
