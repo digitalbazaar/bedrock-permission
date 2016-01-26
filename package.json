@@ -23,8 +23,8 @@
   },
   "homepage": "https://github.com/digitalbazaar/bedrock-permission",
   "dependencies": {
-    "async": "^1.4.2",
-    "underscore": "~1.7.0"
+    "async": "^1.5.2",
+    "lodash": "^4.0.1"
   },
   "peerDependencies": {
     "bedrock": "^1.0.0",
