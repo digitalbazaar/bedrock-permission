@@ -1,6 +1,6 @@
 {
   "name": "bedrock-permission",
-  "version": "1.1.2-dev",
+  "version": "2.0.0-dev",
   "description": "Bedrock permission",
   "main": "./lib/permission",
   "scripts": {
@@ -24,11 +24,13 @@
   "homepage": "https://github.com/digitalbazaar/bedrock-permission",
   "dependencies": {
     "async": "^1.5.2",
+    "bedrock": "^1.0.0",
+    "bedrock-mongodb": "^2.0.0",
     "lodash": "^4.0.1"
   },
   "peerDependencies": {
     "bedrock": "^1.0.0",
-    "bedrock-mongodb": "^1.0.0"
+    "bedrock-mongodb": "^2.0.0"
   },
   "directories": {
     "lib": "./lib"

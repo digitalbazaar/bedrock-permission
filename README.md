@@ -4,6 +4,10 @@ A [bedrock][] module that provides an API for managing access control to
 resources via configurable permissions and roles. It is most commonly used
 with the [bedrock-identity][] module.
 
+## Requirements
+
+- npm v3+
+
 ## Quick Examples
 
 ```
