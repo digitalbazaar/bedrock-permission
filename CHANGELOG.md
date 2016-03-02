@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [2.0.0] - 2016-03-02
+
+### Changed
+- Update package dependencies for npm v3 compatibility.
+
 ## [1.1.1] - 2016-02-05
 
 ### Changed
@@ -30,6 +35,7 @@
 - See git history for changes.
 
 [Unreleased]: https://github.com/digitalbazaar/bedrock-permission/compare/1.1.1...HEAD
+[2.0.0]: https://github.com/digitalbazaar/bedrock-permission/compare/1.1.1...2.0.0
 [1.1.1]: https://github.com/digitalbazaar/bedrock-permission/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/digitalbazaar/bedrock-permission/compare/1.0.1...1.1.0
 [1.0.1]: https://github.com/digitalbazaar/bedrock-permission/compare/1.0.0...1.0.1
