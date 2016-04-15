@@ -1,6 +1,6 @@
 {
   "name": "bedrock-permission",
-  "version": "2.0.1",
+  "version": "2.0.2-dev",
   "description": "Bedrock permission",
   "main": "./lib/permission",
   "scripts": {
