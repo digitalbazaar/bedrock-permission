@@ -2,7 +2,12 @@
 
 ## [Unreleased]
 
-## [2.0.1] - 2016-03-15
+## [2.1.0] - 2016-04-22
+
+### Added
+- Add role API.
+
+## [2.0.1] - 2016-04-15
 
 ### Changed
 - Update bedrock dependencies.
