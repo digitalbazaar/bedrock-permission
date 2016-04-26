@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [2.2.0] - 2016-04-26
+
+### Added
+- Use URLs for role ids.
+
 ## [2.1.0] - 2016-04-22
 
 ### Added
@@ -44,7 +49,8 @@
 
 - See git history for changes.
 
-[Unreleased]: https://github.com/digitalbazaar/bedrock-permission/compare/2.1.0...HEAD
+[Unreleased]: https://github.com/digitalbazaar/bedrock-permission/compare/2.2.0...HEAD
+[2.2.0]: https://github.com/digitalbazaar/bedrock-permission/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/digitalbazaar/bedrock-permission/compare/2.0.1...2.1.0
 [2.0.1]: https://github.com/digitalbazaar/bedrock-permission/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/digitalbazaar/bedrock-permission/compare/1.1.1...2.0.0
