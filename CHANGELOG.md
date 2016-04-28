@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [2.3.0] - 2016-04-28
+
+### Added
+- Add getPermissions API.
+
 ## [2.2.0] - 2016-04-26
 
 ### Added
@@ -49,7 +54,8 @@
 
 - See git history for changes.
 
-[Unreleased]: https://github.com/digitalbazaar/bedrock-permission/compare/2.2.0...HEAD
+[Unreleased]: https://github.com/digitalbazaar/bedrock-permission/compare/2.3.0...HEAD
+[2.3.0]: https://github.com/digitalbazaar/bedrock-permission/compare/2.2.0...2.3.0
 [2.2.0]: https://github.com/digitalbazaar/bedrock-permission/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/digitalbazaar/bedrock-permission/compare/2.0.1...2.1.0
 [2.0.1]: https://github.com/digitalbazaar/bedrock-permission/compare/2.0.0...2.0.1
