@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Changed
+- Update dependencies.
+
 ## [2.3.1] - 2016-05-25
 
 ### Fixed
