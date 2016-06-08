@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 2.3.2 - 2016-06-07
+
 ### Changed
 - Update dependencies.
 
