@@ -1,6 +1,9 @@
 # bedrock-permission ChangeLog
 
-## Unreleased
+## 2.4.0 - 2016-09-29
+
+### Added
+- Support for roles that are marked as deleted.
 
 ## 2.3.2 - 2016-06-07
 
