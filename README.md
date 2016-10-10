@@ -1,5 +1,7 @@
 # bedrock-permission
 
+[![Build Status](http://ci.digitalbazaar.com/buildStatus/icon?job=bedrock-permission)](http://ci.digitalbazaar.com/job/bedrock-permission)
+
 A [bedrock][] module that provides an API for managing access control to
 resources via configurable permissions and roles. It is most commonly used
 with the [bedrock-identity][] module.
