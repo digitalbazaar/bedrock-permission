@@ -2,10 +2,8 @@
   "name": "bedrock-permission",
   "version": "2.4.1-0",
   "description": "Bedrock permission",
-  "main": "./lib/permission",
-  "scripts": {
-    "test": "node test.js"
-  },
+  "main": "./lib",
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/digitalbazaar/bedrock-permission"
