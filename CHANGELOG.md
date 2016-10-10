@@ -1,5 +1,10 @@
 # bedrock-permission ChangeLog
 
+## 2.4.1 - 2016-10-10
+
+### Changed
+- Make removeRole API mark roles as `deleted`.
+
 ## 2.4.0 - 2016-09-29
 
 ### Added
