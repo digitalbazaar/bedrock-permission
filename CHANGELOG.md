@@ -1,5 +1,10 @@
 # bedrock-permission ChangeLog
 
+## 2.4.2 - 2016-10-31
+
+### Fixed
+- Actor checking in checkPermission API.
+
 ## 2.4.1 - 2016-10-10
 
 ### Changed
