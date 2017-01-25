@@ -1,32 +1,48 @@
 /*
- * Copyright (c) 2016 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2016-2017 Digital Bazaar, Inc. All rights reserved.
  */
 /* jshint node: true */
 
 'use strict';
 
-var helpers = require('./helpers');
+const helpers = require('./helpers');
 
-var data = {};
+const data = {};
 module.exports = data;
 
-var identities = data.identities = {};
-var userName;
+const identities = data.identities = {};
+let username;
 
-userName = 'adminUser';
-identities[userName] = {};
-identities[userName].identity = helpers.createIdentity(userName);
-identities[userName].identity.sysResourceRole.push({
+username = 'adminUser';
+identities[username] = {};
+identities[username].identity = helpers.createIdentity(username);
+identities[username].identity.sysResourceRole.push({
   sysRole: 'bedrock-permission.all'
 });
 
-userName = 'noRemoveUser';
-identities[userName] = {};
-identities[userName].identity = helpers.createIdentity(userName);
-identities[userName].identity.sysResourceRole.push({
-  sysRole: 'bedrock-permission.noRemove'
+username = 'noRemoveRoleUser';
+identities[username] = {};
+identities[username].identity = helpers.createIdentity(username);
+identities[username].identity.sysResourceRole.push({
+  sysRole: 'bedrock-permission.noRemoveRole'
 });
 
-userName = 'noPermission';
-identities[userName] = {};
-identities[userName].identity = helpers.createIdentity(userName);
+username = 'noPermission';
+identities[username] = {};
+identities[username].identity = helpers.createIdentity(username);
+
+username = 'simplePermissionSelf';
+identities[username] = {};
+identities[username].identity = helpers.createIdentity(username);
+identities[username].identity.sysResourceRole.push({
+  sysRole: 'bedrock-permission.simple',
+  resource: [identities[username].identity.id]
+});
+
+username = 'simplePermissionSomeResource';
+identities[username] = {};
+identities[username].identity = helpers.createIdentity(username);
+identities[username].identity.sysResourceRole.push({
+  sysRole: 'bedrock-permission.simple',
+  resource: ['some-resource']
+});
