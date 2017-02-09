@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2016-2017 Digital Bazaar, Inc. All rights reserved.
  */
 /* jshint node: true */
 'use strict';
@@ -7,7 +7,7 @@
 var async = require('async');
 var brIdentity = require('bedrock-identity');
 var database = require('bedrock-mongodb');
-var uuid = require('uuid').v4;
+var uuid = require('uuid/v4');
 
 var api = {};
 module.exports = api;

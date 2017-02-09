@@ -23,7 +23,7 @@
   "dependencies": {
     "async": "^1.5.2",
     "lodash": "^4.0.1",
-    "node-uuid": "^1.4.7"
+    "uuid": "^3.0.1"
   },
   "peerDependencies": {
     "bedrock": "^1.0.0",

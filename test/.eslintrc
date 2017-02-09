@@ -1,7 +1,5 @@
 {
   "env": {
-    "amd": true,
-    "mocha": true,
-    "protractor": true
+    "mocha": true
   }
 }

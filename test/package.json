@@ -3,7 +3,8 @@
   "version": "0.0.1-0",
   "description": "Bedrock permission test",
   "scripts": {
-    "test": "node --preserve-symlinks test.js test"
+    "test": "node --preserve-symlinks test.js test",
+    "ci-test": "node --preserve-symlinks test.js test --mocha-reporter=tap"
   },
   "dependencies": {
     "async": "^1.5.2",
@@ -12,7 +13,6 @@
     "bedrock-mongodb": "^3.0.0",
     "bedrock-test": "^1.0.0",
     "lodash": "^4.0.1",
-    "node-uuid": "^1.4.7",
-    "uuid": "^2.0.3"
+    "uuid": "^3.0.1"
   }
 }
