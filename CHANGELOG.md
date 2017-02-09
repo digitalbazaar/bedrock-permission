@@ -1,5 +1,11 @@
 # bedrock-permission ChangeLog
 
+## 2.4.3 - 2017-02-09
+
+### Changed
+- Added tests.
+- Replace `node-uuid` dependency with `uuid`.
+
 ## 2.4.2 - 2016-10-31
 
 ### Fixed
