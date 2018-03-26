@@ -1,5 +1,7 @@
 # bedrock-permission ChangeLog
 
+## 2.4.4 - 2018-03-26
+
 ### Changed
 - Update `bedrock-mongodb` peer dependency.
 - Update test dependencies.
