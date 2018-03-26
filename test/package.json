@@ -10,8 +10,9 @@
     "async": "^1.5.2",
     "bedrock": "^1.0.0",
     "bedrock-identity": "^4.2.4",
-    "bedrock-mongodb": "^3.0.0",
-    "bedrock-test": "^1.0.0",
+    "bedrock-mongodb": "^5.1.2",
+    "bedrock-permission": "file:..",
+    "bedrock-test": "^2.0.0",
     "lodash": "^4.0.1",
     "uuid": "^3.0.1"
   }
