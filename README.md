@@ -88,19 +88,25 @@ and reused when checking a number of different permissions for the identity.
 For example, suppose the `identity.manager` role is assigned to the identity
 `http://example.com/i/member` for the identity `http://example.com/i/org`. This
 models granting permission to a member of an organization to edit aspects
-of that organization's identity.
+of that organization's identity. Actors that include a `sysPermissionTable` or
+`sysResourceRole` may be passed to `permission.checkPermission`.
 
-Now the following [bedrock-identity][] API call can be used before updating
-an identity:
+For example, the following [bedrock-identity][] API call can be used before
+updating an identity:
 
 ```js
 var brIdentity = require('bedrock-identity');
 
 var PERMISSIONS = config.permission.permissions;
-var actor = {id: 'http://example.com/i/member'};
-brIdentity.checkPermission(
-  actor, PERMISSIONS.IDENTITY_EDIT,
-  {resource: 'http://example.com/i/org'}, callback);
+brIdentity.get(null, 'http://example.com/i/member', (err, actor) => {
+  if(err) {
+    // handle error ...
+  }
+  brIdentity.checkPermission(
+    actor, PERMISSIONS.IDENTITY_EDIT,
+    {resource: 'http://example.com/i/org'}, callback);
+  // ...
+});
 ```
 
 A more complicated check could be made against resources the identity owns:
@@ -109,14 +115,19 @@ A more complicated check could be made against resources the identity owns:
 var brIdentity = require('bedrock-identity');
 
 var PERMISSIONS = config.permission.permissions;
-var actor = {id: 'http://example.com/i/member'};
-var resource = {
-  id: 'http://example.com/i/org/keys/1',
-  owner: 'http://example.com/i/org'
-};
-brIdentity.checkPermission(
-  actor, PERMISSIONS.IDENTITY_EDIT,
-  {resource: resource, translate: 'owner'}, callback);
+brIdentity.get(null, 'http://example.com/i/member', (err, actor) => {
+  if(err) {
+    // handle error ...
+  }
+  var resource = {
+    id: 'http://example.com/i/org/keys/1',
+    owner: 'http://example.com/i/org'
+  };
+  brIdentity.checkPermission(
+    actor, PERMISSIONS.IDENTITY_EDIT,
+    {resource: resource, translate: 'owner'}, callback);
+  // ...
+});
 ```
 
 ## How It Works
@@ -173,21 +184,23 @@ to the value 'true'.
 In [bedrock][], the typical usage pattern for checking permissions occurs when
 an actor attempts to perform an action on a resource. An actor is any identity
 as defined via [bedrock-identity][]. In order to check to see if an actor has a
-permission to act on a resource, the `checkPermission` API in the
-[bedrock-identity][] module is used.
+permission to act on a resource, it may be passed to the `checkPermission` API,
+provided that its `sysResourceRole` or `sysPermissionTable` has been set.
 
-This API will create and cache the actor's permission table. Then it will check
-the table to see if a particular permission exists. If it does, and the actor
-is granted the permission for all resources, the permission check succeeds.
-Otherwise, if a resource or set of resources has been given to the API, these
-must be checked. In order to check resources, first a translate function, if
-given, is applied to determine which identifiers should be looked for in the
-table for the given resources. This translation can be arbitrary; the default
-behavior is to use the identifiers for the resources themselves. There are
-some built-in options that allow different properties of the resources (eg:
-'owner') to be scanned to find alternative identifiers. If a look up of the
-resource is necessary to check those properties, a custom function may be
-provided to obtain that information during identifier translation.
+The [bedrock-identity][] `get` API will create and cache the retrieved
+identity's (aka actor) permission table. When this actor is passed to the
+`checkPermission` API, it will check the table to see if a particular
+permission exists. If it does, and the actor is granted the permission for all
+resources, the permission check succeeds. Otherwise, if a resource or set of
+resources has been given to the API, these must be checked. In order to check
+resources, first a translate function, if given, is applied to determine which
+identifiers should be looked for in the table for the given resources. This
+translation can be arbitrary; the default behavior is to use the identifiers
+for the resources themselves. There are some built-in options that allow
+different properties of the resources (eg: 'owner') to be scanned to find
+alternative identifiers. If a look up of the resource is necessary to check
+those properties, a custom function may be provided to obtain that information
+during identifier translation.
 
 Once the identifiers for the resources have been determined, they are checked
 against the actor's permission table as well. If they exist, the permission
