@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2017 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2016-2018 Digital Bazaar, Inc. All rights reserved.
  */
 /* jshint node: true */
 
@@ -13,6 +13,7 @@ module.exports = data;
 const identities = data.identities = {};
 let username;
 
+// FIXME: use new bedrock-identity format
 username = 'adminUser';
 identities[username] = {};
 identities[username].identity = helpers.createIdentity(username);

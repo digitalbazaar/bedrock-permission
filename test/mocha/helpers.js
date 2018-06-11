@@ -1,19 +1,20 @@
 /*
- * Copyright (c) 2016-2017 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2016-2018 Digital Bazaar, Inc. All rights reserved.
  */
 /* jshint node: true */
 'use strict';
 
-var async = require('async');
-var brIdentity = require('bedrock-identity');
-var database = require('bedrock-mongodb');
-var uuid = require('uuid/v4');
+// FIXME: update to use new bedrock-identity API
+const brIdentity = require('bedrock-identity');
+const database = require('bedrock-mongodb');
+const {promisify} = require('util');
+const uuid = require('uuid/v4');
 
-var api = {};
+const api = {};
 module.exports = api;
 
-api.createIdentity = function(userName) {
-  var newIdentity = {
+api.createIdentity = userName => {
+  const newIdentity = {
     id: 'did:' + uuid(),
     type: 'Identity',
     sysSlug: userName,
@@ -29,50 +30,45 @@ api.createIdentity = function(userName) {
   return newIdentity;
 };
 
-api.removeCollection = function(collection, callback) {
-  var collectionNames = [collection];
-  database.openCollections(collectionNames, () => {
-    async.each(collectionNames, function(collectionName, callback) {
-      database.collections[collectionName].remove({}, callback);
-    }, function(err) {
-      callback(err);
-    });
-  });
+api.getActors = async mockData => {
+  const actors = {};
+  const getFn = promisify(brIdentity.get);
+  for(const [key, record] of Object.entries(mockData.identities)) {
+    actors[key] = await getFn(null, record.identity.id);
+  }
+  return actors;
 };
 
-api.removeCollections = function(callback) {
-  var collectionNames = ['identity'];
-  database.openCollections(collectionNames, () => {
-    async.each(collectionNames, (collectionName, callback) => {
-      database.collections[collectionName].remove({}, callback);
-    }, function(err) {
-      callback(err);
-    });
-  });
+api.removeCollections = async (collectionNames = ['identity']) => {
+  await promisify(database.openCollections)(collectionNames);
+  for(const collectionName of collectionNames) {
+    await database.collections[collectionName].remove({});
+  }
 };
 
-api.prepareDatabase = function(mockData, callback) {
-  async.series([
-    callback => {
-      api.removeCollections(callback);
-    },
-    callback => {
-      insertTestData(mockData, callback);
-    }
-  ], callback);
+api.removeCollection =
+  async collectionName => api.removeCollections([collectionName]);
+
+api.prepareDatabase = async mockData => {
+  await api.removeCollections();
+  await insertTestData(mockData);
 };
 
-// Insert identities and public keys used for testing into database
-function insertTestData(mockData, callback) {
-  async.forEachOf(mockData.identities, (identity, key, callback) => {
-    brIdentity.insert(null, identity.identity, callback);
-  }, err => {
-    if(err) {
-      if(!database.isDuplicateError(err)) {
+async function insertTestData(mockData) {
+  const records = Object.values(mockData.identities);
+  // FIXME: use new bedrock-identity API
+  const insertFn = promisify(brIdentity.insert);
+  for(const record of records) {
+    try {
+      await insertFn(null, record.identity);
+    } catch(e) {
+      // FIXME: use new bedrock-identity API
+      //if(e.name === 'DuplicateError') {
+      if(!database.isDuplicateError(e)) {
         // duplicate error means test data is already loaded
-        return callback(err);
+        continue;
       }
+      throw e;
     }
-    callback();
-  }, callback);
+  }
 }
