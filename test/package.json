@@ -7,8 +7,7 @@
     "ci-test": "node --preserve-symlinks test.js test --mocha-reporter=tap"
   },
   "dependencies": {
-    "async": "^1.5.2",
-    "bedrock": "^1.0.0",
+    "bedrock": "^1.12.1",
     "bedrock-identity": "^4.2.4",
     "bedrock-mongodb": "^5.1.2",
     "bedrock-permission": "file:..",
