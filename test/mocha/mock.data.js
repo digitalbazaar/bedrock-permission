@@ -17,33 +17,42 @@ let username;
 username = 'adminUser';
 identities[username] = {};
 identities[username].identity = helpers.createIdentity(username);
-identities[username].identity.sysResourceRole.push({
-  sysRole: 'bedrock-permission.all'
-});
+identities[username].meta = {
+  sysResourceRole: [{
+    sysRole: 'bedrock-permission.all'
+  }]
+};
 
 username = 'noRemoveRoleUser';
 identities[username] = {};
 identities[username].identity = helpers.createIdentity(username);
-identities[username].identity.sysResourceRole.push({
-  sysRole: 'bedrock-permission.noRemoveRole'
-});
+identities[username].meta = {
+  sysResourceRole: [{
+    sysRole: 'bedrock-permission.noRemoveRole'
+  }]
+};
 
 username = 'noPermission';
 identities[username] = {};
 identities[username].identity = helpers.createIdentity(username);
+identities[username].meta = {};
 
 username = 'simplePermissionSelf';
 identities[username] = {};
 identities[username].identity = helpers.createIdentity(username);
-identities[username].identity.sysResourceRole.push({
-  sysRole: 'bedrock-permission.simple',
-  resource: [identities[username].identity.id]
-});
+identities[username].meta = {
+  sysResourceRole: [{
+    sysRole: 'bedrock-permission.simple',
+    resource: [identities[username].identity.id]
+  }]
+};
 
 username = 'simplePermissionSomeResource';
 identities[username] = {};
 identities[username].identity = helpers.createIdentity(username);
-identities[username].identity.sysResourceRole.push({
-  sysRole: 'bedrock-permission.simple',
-  resource: ['some-resource']
-});
+identities[username].meta = {
+  sysResourceRole: [{
+    sysRole: 'bedrock-permission.simple',
+    resource: ['some-resource']
+  }]
+};

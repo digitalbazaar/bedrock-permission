@@ -8,10 +8,11 @@
   },
   "dependencies": {
     "bedrock": "^1.12.1",
-    "bedrock-identity": "^4.2.4",
+    "bedrock-identity": "digitalbazaar/bedrock-identity#update-api",
     "bedrock-mongodb": "^5.1.2",
     "bedrock-permission": "file:..",
     "bedrock-test": "^2.0.0",
+    "bedrock-validation": "^2.4.0",
     "lodash": "^4.0.1",
     "uuid": "^3.0.1"
   }
