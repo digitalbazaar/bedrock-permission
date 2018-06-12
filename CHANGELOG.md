@@ -1,5 +1,10 @@
 # bedrock-permission ChangeLog
 
+## 2.5.0 - 2018-06-12
+
+### Changed
+- Clean up internals to use async+await, etc.
+
 ## 2.4.4 - 2018-03-26
 
 ### Changed
