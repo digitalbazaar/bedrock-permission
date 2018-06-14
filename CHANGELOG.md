@@ -1,5 +1,9 @@
 # bedrock-permission ChangeLog
 
+### Added
+- Add `expandRoles`, `mergeCapabilities`, and `subtractCapabilities`
+  utility functions.
+
 ## 2.5.0 - 2018-06-12
 
 ### Changed
