@@ -1,5 +1,7 @@
 # bedrock-permission ChangeLog
 
+## 2.5.1 - 2018-08-19
+
 ### Fixed
 - Fix bug so promise is returned from `checkPermission` and
   `checkActorPermission`.
