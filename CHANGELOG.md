@@ -1,5 +1,11 @@
 # bedrock-permission ChangeLog
 
+## 2.5.2 - 2018-09-13
+
+### Fixed
+- Fix issue where callback would not be invoked when result argument was
+   `undefined`.
+
 ## 2.5.1 - 2018-08-19
 
 ### Fixed
