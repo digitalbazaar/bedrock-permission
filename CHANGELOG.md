@@ -1,5 +1,10 @@
 # bedrock-permission ChangeLog
 
+# 2.5.3 - 2018-09-14
+
+## Fixed
+- Fix `checkPermission` to function properly with callback and promises.
+
 ## 2.5.2 - 2018-09-13
 
 ### Fixed
