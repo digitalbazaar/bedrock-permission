@@ -3,7 +3,10 @@
   "version": "2.5.4-0",
   "description": "Bedrock permission",
   "main": "./lib",
-  "scripts": {},
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/digitalbazaar/bedrock-permission"
@@ -22,7 +25,8 @@
   "homepage": "https://github.com/digitalbazaar/bedrock-permission",
   "dependencies": {
     "lodash": "^4.0.1",
-    "uuid": "^3.0.1"
+    "uuid": "^3.0.1",
+    "snyk": "^1.192.3"
   },
   "peerDependencies": {
     "bedrock": "^1.12.1",
@@ -30,5 +34,6 @@
   },
   "directories": {
     "lib": "./lib"
-  }
+  },
+  "snyk": true
 }
