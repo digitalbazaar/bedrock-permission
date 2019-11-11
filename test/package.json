@@ -7,13 +7,12 @@
     "ci-test": "node --preserve-symlinks test.js test --mocha-reporter=tap"
   },
   "dependencies": {
-    "bedrock": "^1.12.1",
-    "bedrock-identity": "^5.0.0",
-    "bedrock-mongodb": "^5.1.2",
+    "bedrock": "^3.0.1",
+    "bedrock-identity": "^7.0.0",
+    "bedrock-mongodb": "^6.0.2",
     "bedrock-permission": "file:..",
-    "bedrock-test": "^2.0.0",
-    "bedrock-validation": "^2.4.0",
-    "lodash": "^4.0.1",
-    "uuid": "^3.0.1"
+    "bedrock-test": "^4.0.2",
+    "bedrock-validation": "^4.2.0",
+    "uuid": "^3.3.3"
   }
 }
