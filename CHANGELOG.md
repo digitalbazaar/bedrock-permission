@@ -1,5 +1,8 @@
 # bedrock-permission ChangeLog
 
+### Changed
+- Update dependencies.
+
 # 2.5.3 - 2018-09-14
 
 ## Fixed
