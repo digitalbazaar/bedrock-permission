@@ -1,5 +1,7 @@
 # bedrock-permission ChangeLog
 
+# 2.5.4 - 2019-11-12
+
 ### Changed
 - Update dependencies.
 
