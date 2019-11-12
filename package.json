@@ -2,6 +2,7 @@
   "name": "bedrock-permission",
   "version": "2.5.4-0",
   "description": "Bedrock permission",
+  "license": "SEE LICENSE IN LICENSE.md",
   "main": "./lib",
   "scripts": {},
   "repository": {
