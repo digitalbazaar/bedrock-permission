@@ -17,7 +17,7 @@ config.mongodb.adminPrompt = true;
 config.mongodb.dropCollections.onInit = true;
 config.mongodb.dropCollections.collections = [];
 
-const { permissions, roles } = config.permission;
+const {permissions, roles} = config.permission;
 
 roles['bedrock-permission.all'] = {
   id: 'bedrock-permission.all',

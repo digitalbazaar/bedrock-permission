@@ -74,51 +74,51 @@ describe('bedrock-permission', () => {
       });
     });
 
-    describe('user with `TEST_PERMISSION_SIMPLE + some-resource` capability',
-      () => {
-      // FIXME: remove extra promisify once new API is in place
-      const checkPermission = promisify(brPermission.checkPermission);
-      it('should pass permission check', async () => {
-        await checkPermission(
-          actors.simplePermissionSomeResource,
-          permissions.TEST_PERMISSION_SIMPLE,
-          {resource: 'some-resource'});
+    describe(
+      'user with `TEST_PERMISSION_SIMPLE + some-resource` capability', () => {
+        // FIXME: remove extra promisify once new API is in place
+        const checkPermission = promisify(brPermission.checkPermission);
+        it('should pass permission check', async () => {
+          await checkPermission(
+            actors.simplePermissionSomeResource,
+            permissions.TEST_PERMISSION_SIMPLE,
+            {resource: 'some-resource'});
+        });
       });
-    });
 
     describe(
       'user with `TEST_PERMISSION_SIMPLE + self` capability and ' +
       'translate function', () => {
-      // FIXME: remove extra promisify once new API is in place
-      const checkPermission = promisify(brPermission.checkPermission);
-      it('should pass permission check', async () => {
-        await checkPermission(
-          actors.simplePermissionSelf, permissions.TEST_PERMISSION_SIMPLE, {
-            resource: {
-              id: 'some-resource',
-              owner: actors.simplePermissionSelf.id
-            },
-            translate: 'owner'
-          });
+        // FIXME: remove extra promisify once new API is in place
+        const checkPermission = promisify(brPermission.checkPermission);
+        it('should pass permission check', async () => {
+          await checkPermission(
+            actors.simplePermissionSelf, permissions.TEST_PERMISSION_SIMPLE, {
+              resource: {
+                id: 'some-resource',
+                owner: actors.simplePermissionSelf.id
+              },
+              translate: 'owner'
+            });
+        });
       });
-    });
 
     describe(
       'user with `TEST_PERMISSION_SIMPLE + some-resource` capability ' +
       'and translate function', () => {
-      // FIXME: remove extra promisify once new API is in place
-      const checkPermission = promisify(brPermission.checkPermission);
-      it('should pass permission check', async () => {
-        await checkPermission(
-          actors.simplePermissionSomeResource,
-          permissions.TEST_PERMISSION_SIMPLE, {
-            resource: {
-              id: 'some-resource',
-              owner: actors.simplePermissionSomeResource.id
-            },
-            translate: 'owner'
-          });
+        // FIXME: remove extra promisify once new API is in place
+        const checkPermission = promisify(brPermission.checkPermission);
+        it('should pass permission check', async () => {
+          await checkPermission(
+            actors.simplePermissionSomeResource,
+            permissions.TEST_PERMISSION_SIMPLE, {
+              resource: {
+                id: 'some-resource',
+                owner: actors.simplePermissionSomeResource.id
+              },
+              translate: 'owner'
+            });
+        });
       });
-    });
   });
 });
