@@ -4,15 +4,28 @@
   "description": "Bedrock permission test",
   "scripts": {
     "test": "node --preserve-symlinks test.js test",
-    "ci-test": "node --preserve-symlinks test.js test --mocha-reporter=tap"
+    "coverage": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text-summary npm test",
+    "coverage-ci": "cross-env NODE_ENV=test nyc --reporter=text-lcov npm test > coverage.lcov",
+    "coverage-report": "nyc report"
   },
   "dependencies": {
     "bedrock": "^3.0.1",
     "bedrock-identity": "^7.0.0",
     "bedrock-mongodb": "^6.0.2",
     "bedrock-permission": "file:..",
-    "bedrock-test": "^4.0.2",
+    "bedrock-test": "^5.0.0",
     "bedrock-validation": "^4.2.0",
+    "cross-env": "^7.0.2",
+    "nyc": "^15.0.1",
     "uuid": "^3.3.3"
+  },
+  "nyc": {
+    "excludeNodeModules": false,
+    "include": [
+      "node_modules/bedrock-permission/**"
+    ],
+    "exclude": [
+      "node_modules/bedrock-permission/node_modules/**"
+    ]
   }
 }
