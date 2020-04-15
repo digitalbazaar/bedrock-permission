@@ -1,7 +1,8 @@
 /*
- * Copyright (c) 2016-2018 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2016-2020 Digital Bazaar, Inc. All rights reserved.
  */
-/* globals should */
+'use strict';
+
 const bedrock = require('bedrock');
 const {config} = bedrock;
 const brPermission = require('bedrock-permission');

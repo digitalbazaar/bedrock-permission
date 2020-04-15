@@ -1,8 +1,6 @@
 /*
- * Copyright (c) 2016-2018 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2016-2020 Digital Bazaar, Inc. All rights reserved.
  */
-/* jshint node: true */
-
 'use strict';
 
 const helpers = require('./helpers');
