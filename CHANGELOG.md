@@ -1,5 +1,11 @@
 # bedrock-permission ChangeLog
 
+## 3.0.0 -
+
+### Changed
+- **BREAKING**: Upgrade `bedrock-mongodb` to ^7.0.0.
+- Change mongo APIs to conform to mongo driver 3.5.
+
 # 2.5.4 - 2019-11-12
 
 ### Changed
