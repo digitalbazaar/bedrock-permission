@@ -8,47 +8,47 @@ const helpers = require('./helpers');
 const data = {};
 module.exports = data;
 
-const identities = data.identities = {};
+const accounts = data.accounts = {};
 let username;
 
-// FIXME: use new bedrock-identity format
+// FIXME: use new bedrock-account format
 username = 'adminUser';
-identities[username] = {};
-identities[username].identity = helpers.createIdentity(username);
-identities[username].meta = {
+accounts[username] = {};
+accounts[username].account = helpers.createAccount(username);
+accounts[username].meta = {
   sysResourceRole: [{
     sysRole: 'bedrock-permission.all'
   }]
 };
 
 username = 'noRemoveRoleUser';
-identities[username] = {};
-identities[username].identity = helpers.createIdentity(username);
-identities[username].meta = {
+accounts[username] = {};
+accounts[username].account = helpers.createAccount(username);
+accounts[username].meta = {
   sysResourceRole: [{
     sysRole: 'bedrock-permission.noRemoveRole'
   }]
 };
 
 username = 'noPermission';
-identities[username] = {};
-identities[username].identity = helpers.createIdentity(username);
-identities[username].meta = {};
+accounts[username] = {};
+accounts[username].account = helpers.createAccount(username);
+accounts[username].meta = {};
 
 username = 'simplePermissionSelf';
-identities[username] = {};
-identities[username].identity = helpers.createIdentity(username);
-identities[username].meta = {
+accounts[username] = {};
+accounts[username].account = helpers.createAccount(username);
+accounts[username].meta = {
   sysResourceRole: [{
     sysRole: 'bedrock-permission.simple',
-    resource: [identities[username].identity.id]
+    resource: [accounts[username].account.id]
   }]
 };
 
 username = 'simplePermissionSomeResource';
-identities[username] = {};
-identities[username].identity = helpers.createIdentity(username);
-identities[username].meta = {
+accounts[username] = {};
+accounts[username].account = helpers.createAccount(username);
+accounts[username].meta = {
   sysResourceRole: [{
     sysRole: 'bedrock-permission.simple',
     resource: ['some-resource']

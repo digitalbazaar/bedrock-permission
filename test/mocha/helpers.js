@@ -3,7 +3,7 @@
  */
 'use strict';
 
-const brIdentity = require('bedrock-identity');
+const brAccount = require('bedrock-account');
 const database = require('bedrock-mongodb');
 const {promisify} = require('util');
 const {util: {uuid}} = require('bedrock');
@@ -11,26 +11,26 @@ const {util: {uuid}} = require('bedrock');
 const api = {};
 module.exports = api;
 
-api.createIdentity = userName => {
-  const newIdentity = {
+api.createAccount = userName => {
+  const newAccount = {
     id: 'did:' + uuid(),
     label: userName,
     email: userName + '@bedrock.dev',
     url: 'https://example.com',
     description: userName
   };
-  return newIdentity;
+  return newAccount;
 };
 
 api.getActors = async mockData => {
   const actors = {};
-  for(const [key, record] of Object.entries(mockData.identities)) {
-    actors[key] = await brIdentity.getCapabilities({id: record.identity.id});
+  for(const [key, record] of Object.entries(mockData.accounts)) {
+    actors[key] = await brAccount.getCapabilities({id: record.account.id});
   }
   return actors;
 };
 
-api.removeCollections = async (collectionNames = ['identity']) => {
+api.removeCollections = async (collectionNames = ['account']) => {
   await promisify(database.openCollections)(collectionNames);
   for(const collectionName of collectionNames) {
     await database.collections[collectionName].deleteMany({});
@@ -46,11 +46,11 @@ api.prepareDatabase = async mockData => {
 };
 
 async function insertTestData(mockData) {
-  const records = Object.values(mockData.identities);
+  const records = Object.values(mockData.accounts);
   for(const record of records) {
     try {
-      await brIdentity.insert(
-        {actor: null, identity: record.identity, meta: record.meta || {}});
+      await brAccount.insert(
+        {actor: null, account: record.account, meta: record.meta || {}});
     } catch(e) {
       if(e.name === 'DuplicateError') {
         // duplicate error means test data is already loaded
