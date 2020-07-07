@@ -1,5 +1,11 @@
 # bedrock-permission ChangeLog
 
+## 3.1.0 - 2020-07-07
+
+### Changed
+- Update peer deps and test deps.
+- Update tests to use `bedrock-account` in place of obsolete `bedrock-identity`.
+
 ## 3.0.0 - 2020-06-09
 
 ### Changed
