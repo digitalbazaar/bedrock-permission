@@ -12,7 +12,6 @@ config.mocha.tests.push(path.join(__dirname, 'mocha'));
 config.mongodb.name = 'bedrock_permission_test';
 config.mongodb.host = 'localhost';
 config.mongodb.port = 27017;
-config.mongodb.local.collection = 'bedrock_permission_test';
 config.mongodb.adminPrompt = true;
 config.mongodb.dropCollections.onInit = true;
 config.mongodb.dropCollections.collections = [];
