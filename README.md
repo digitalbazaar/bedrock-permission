@@ -1,5 +1,7 @@
 # bedrock-permission
 
+# DO NOT USE - This module is obsolete.
+
 [![Build Status](http://ci.digitalbazaar.com/buildStatus/icon?job=bedrock-permission)](http://ci.digitalbazaar.com/job/bedrock-permission)
 
 A [bedrock][] module that provides an API for managing access control to
